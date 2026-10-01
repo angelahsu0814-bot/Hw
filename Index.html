@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI與經濟研究報告 - AREMOS 數據專題規劃</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0284c7;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background-color: #e0f2fe;
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--secondary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 12px;
+            margin-top: 35px;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .card-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+        }
+
+        pre {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .formula {
+            background-color: #f8fafc;
+            border-left: 3px solid var(--accent);
+            padding: 12px;
+            margin: 10px 0;
+            font-family: serif;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>《AI與經濟研究報告》專題設計規劃書</h1>
+        <div class="meta-info">
+            <span><strong>機構：</strong>淡江大學 (Tamkang University)</span>
+            <span><strong>數據源：</strong>台灣 AREMOS 資料庫 (netaremos.org.tw)</span>
+            <span><span class="tag">半導體出口</span> <span class="tag">時序分析</span></span>
+        </div>
+    </header>
+
+    <section>
+        <h2>一、 研究題目規劃</h2>
+        <div class="card">
+            <div class="card-header">題目一：AI 算力浪潮下的 K 型復甦：台灣半導體出口對製造業薪資與貨幣總量 (M2) 之動態溢出效應</div>
+            <p><strong>研究重點：</strong>探討半導體出口暴增對國內金融面貨幣總量 (M2) 的推動作用，以及對實體經濟中不同產業薪資結構的動態傳導與不對稱外溢效果。</p>
+        </div>
+        <div class="card">
+            <div class="card-header">題目二：全球 AI 供應鏈衝擊與台灣經濟韌性：基於結構向量自回歸 (SVAR) 之電子零組件出口動態傳導</div>
+            <p><strong>研究重點：</strong>建立 SVAR 模型，將 AI 算力需求視為外生衝擊，分析半導體出口波動對物價 (CPI)、貨幣供給 (M1B/M2) 及總薪資的衝擊反應路徑與經濟調整韌性。</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>二、 研究假說與傳導機制</h2>
+        
+        <h3>假說一：動態溢出與貨幣積累</h3>
+        <ul>
+            <li><strong>H1a：</strong>半導體出口年增率成長對 M2 具有顯著正向影響，且存在 2-3 個月的傳導延滯。</li>
+            <li><strong>H1b：</strong>出口獲利外溢至總薪資的效果高度集中於高科技製造業，拉大與傳統產業之薪資差距。</li>
+        </ul>
+        <div class="formula">
+            <strong>傳導路徑：</strong> AI需求衝擊 &rarr; 電子零組件出口 &rarr; 順差與外匯流入 &rarr; 央行國外資產 & Corporate Deposits &rarr; M2總量升高 &rarr; 科技業薪資擴散
+        </div>
+
+        <h3>假說二：SVAR 結構衝擊與實體回應</h3>
+        <ul>
+            <li><strong>H2a：</strong>電子零組件出口衝擊能帶來持續 6-12 個月的實體薪資正向效應，且短期內通膨 (CPI) 壓力可控。</li>
+            <li><strong>H2b：</strong>M1B 對外生出口衝擊的敏感度高於 M2，反映資產市場的交易性貨幣需求熱絡。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>三、 建議數據視覺化圖表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>圖表類型</th>
+                    <th>推薦指標與變數</th>
+                    <th>研究實證目的</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>雙 Y 軸時序圖</strong></td>
+                    <td>左軸：電子零組件出口 YoY (%)<br>右軸：M2 年增率 / 總薪資 YoY (%)</td>
+                    <td>初步觀察出口波動與貨幣總量/薪資之領先與落後週期。</td>
+                </tr>
+                <tr>
+                    <td><strong>交叉相關性熱力圖</strong></td>
+                    <td>電子零組件出口 vs (M1B, M2, CPI, 薪資)<br>Lag Range: t-6 ~ t+6</td>
+                    <td>精確量化半導體出口傳導至實體變數所需的時間期數 (Lags)。</td>
+                </tr>
+                <tr>
+                    <td><strong>脈衝衝擊圖 (IRF)</strong></td>
+                    <td>SVAR 模型之衝擊回應函數</td>
+                    <td>模擬半導體出口產生 1 個標準差衝擊時，未來 12 期總體經濟變數的反應路徑。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>四、 Python 資料清洗與時序分析模組</h2>
+        <p>下方為對 AREMOS CSV 數據進行預處理、計算 YoY 與平穩性檢驗的標準 Python 程式碼：</p>
+        <pre><code>import pandas as pd
+import numpy as np
+from statsmodels.tsa.stattools import adfuller
+
+def clean_aremos_data(filepath):
+    # 讀取 AREMOS CSV (常見編碼 cp950)
+    df = pd.read_csv(filepath, encoding='cp950')
+    df.rename(columns={df.columns[0]: 'Date'}, inplace=True)
+    
+    # 轉換時間格式 (例如 2020M01 -> 2020-01-01)
+    df['Date'] = df['Date'].astype(str).str.replace('M', '-').str.replace('/', '-')
+    df['Date'] = pd.to_datetime(df['Date'])
+    df.set_index('Date', inplace=True)
+    
+    # 數值型態清洗與插補
+    for col in df.columns:
+        df[col] = pd.to_numeric(df[col].astype(str).str.replace(',', ''), errors='coerce')
+    df.ffill(inplace=True)
+    return df
+
+# 計算 YoY (%) 並進行 ADF 檢定
+def analyze_series(df):
+    yoy = df.pct_change(12) * 100
+    yoy.dropna(inplace=True)
+    for col in yoy.columns:
+        p_val = adfuller(yoy[col])[1]
+        print(f"變數 [{col}] ADF p-value: {p_val:.4f}")
+    return yoy
+        </code></pre>
+    </section>
+
+    <footer>
+        淡江大學《AI與經濟研究報告》專題架構指南 &copy; 2026
+    </footer>
+</div>
+
+</body>
+</html>

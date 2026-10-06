@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI與經濟研究｜通膨與薪資</title>
+
+<style>
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#64748b;
+    --accent:#315efb;
+    --accent2:#7c3aed;
+    --line:#e5e7eb;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Noto Sans TC",
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+    background:linear-gradient(
+        135deg,
+        #182848,
+        #4b6cb7
+    );
+    color:white;
+    padding:70px 20px 60px;
+}
+
+.wrap{
+    max-width:1050px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:14px;
+}
+
+h1{
+    font-size:clamp(30px,5vw,50px);
+    line-height:1.2;
+    margin:18px 0 12px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.9;
+}
+
+/* ===== Main ===== */
+
+main{
+    padding:35px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.05);
+    margin-bottom:20px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.label{
+    color:var(--accent);
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+h2{
+    margin:7px 0 15px;
+    font-size:25px;
+}
+
+h3{
+    margin-top:18px;
+}
+
+ul{
+    padding-left:22px;
+}
+
+.formula{
+    background:#f1f5ff;
+    border-left:4px solid var(--accent);
+    padding:15px 18px;
+    border-radius:10px;
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        monospace;
+}
+
+.tag{
+    display:inline-block;
+    background:#eef2ff;
+    color:#4338ca;
+    padding:4px 9px;
+    border-radius:8px;
+    margin:3px;
+    font-size:13px;
+}
+
+/* ===== Table ===== */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th,
+td{
+    border-bottom:1px solid var(--line);
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#f8fafc;
+}
+
+/* ===== Chart ===== */
+
+.chart{
+    height:330px;
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    background:#fcfdff;
+    overflow:hidden;
+}
+
+svg{
+    width:100%;
+    height:100%;
+}
+
+.note{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ===== Footer ===== */
+
+.footer{
+    color:var(--muted);
+    font-size:14px;
+    padding:
+        10px
+        0
+        50px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:750px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .card{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     Hero
+========================= -->
+
+<header class="hero">
+
+<div class="wrap">
+
+<span class="badge">
+淡江大學｜AI與經濟研究報告
+</span>
+
+<h1>
+通膨與薪資：<br>
+物價衝擊是否會被薪資調整吸收？
+</h1>
+
+<p>
+以臺灣 AREMOS 時間序列資料，
+分析 CPI 通膨與受僱員工薪資之動態關係。
+</p>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     Main
+========================= -->
+
+<main class="wrap">
+
+<div class="grid">
+
+
+<!-- 01 -->
+
+<section class="card full">
+
+<div class="label">
+01｜研究題目
+</div>
+
+<h2>
+「物價衝擊與薪資調整的動態傳導：
+臺灣通膨與名目薪資關係之實證研究」
+</h2>
+
+<p>
+<b>研究核心：</b>
+探討臺灣 CPI 通膨上升後，
+受僱員工總薪資是否會在當期或落後期間調整，
+以及薪資成長是否可能反過來形成成本推動型通膨。
+</p>
+
+<p>
+
+<span class="tag">通膨</span>
+
+<span class="tag">薪資</span>
+
+<span class="tag">薪資—物價螺旋</span>
+
+<span class="tag">VAR</span>
+
+<span class="tag">IRF</span>
+
+</p>
+
+</section>
+
+
+<!-- 02 -->
+
+<section class="card">
+
+<div class="label">
+02｜研究問題
+</div>
+
+<h2>
+Research Questions
+</h2>
+
+<ul>
+
+<li>
+通膨上升是否會帶動受僱員工名目薪資成長？
+</li>
+
+<li>
+薪資對物價衝擊的反應是否存在時間落後？
+</li>
+
+<li>
+薪資成長是否可能透過勞動成本形成反向的物價壓力？
+</li>
+
+<li>
+物價上升後，實質薪資是否出現短期下降？
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- 03 -->
+
+<section class="card">
+
+<div class="label">
+03｜研究假說
+</div>
+
+<h2>
+Hypotheses
+</h2>
+
+<h3>
+H1｜物價衝擊假說
+</h3>
+
+<p>
+短期內 CPI 通膨上升會造成實質薪資承受壓力；
+名目薪資則可能在數期後逐步調整。
+</p>
+
+<h3>
+H2｜薪資追趕假說
+</h3>
+
+<p>
+若勞工議價、最低工資或企業調薪機制存在，
+過去的物價上漲會提高後續名目薪資成長率。
+</p>
+
+<h3>
+H3｜成本推動假說
+</h3>
+
+<p>
+名目薪資快速成長可能提高企業勞動成本，
+進一步對 CPI 形成正向壓力。
+</p>
+
+</section>
+
+
+<!-- 04 -->
+
+<section class="card full">
+
+<div class="label">
+04｜經濟學理傳導機制
+</div>
+
+<h2>
+Inflation ↔ Wage Transmission
+</h2>
+
+<div class="formula">
+
+物價上升
+→
+實質購買力下降
+→
+勞工要求調薪
+→
+名目薪資上升
+→
+勞動成本上升
+→
+企業調整價格
+→
+CPI 上升
+
+</div>
+
+<p>
+
+此機制可形成「薪資—物價螺旋」的可能性。
+
+不過，薪資與物價同時受到景氣、
+勞動生產力、能源價格、貨幣政策與外部需求等因素影響，
+
+因此實證上不宜僅以相關係數判斷因果關係。
+
+</p>
+
+</section>
+
+
+<!-- 05 -->
+
+<section class="card">
+
+<div class="label">
+05｜AREMOS 資料規劃
+</div>
+
+<h2>
+建議查詢指標
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+
+<th>
+變數
+</th>
+
+<th>
+建議資料
+</th>
+
+<th>
+用途
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+Inflation
+</td>
+
+<td>
+CPI 年增率
+</td>
+
+<td>
+主要物價衝擊
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Wage
+</td>
+
+<td>
+受僱員工總薪資／平均薪資
+</td>
+
+<td>
+名目薪資反應
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Real Wage
+</td>
+
+<td>
+薪資經 CPI 平減
+</td>
+
+<td>
+購買力與實質所得
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Control
+</td>
+
+<td>
+失業率、工業生產等
+</td>
+
+<td>
+控制景氣循環
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p class="note">
+
+實際檢索代號請在 AREMOS 的
+PRICE、WAGE、MAN 等資料庫依
+「名稱／描述／頻率」搜尋後確認；
+
+不同版本資料庫的代號可能不同。
+
+</p>
+
+</section>
+
+
+<!-- 06 -->
+
+<section class="card">
+
+<div class="label">
+06｜建議研究方法
+</div>
+
+<h2>
+VAR 動態分析
+</h2>
+
+<p>
+
+若資料頻率與樣本長度允許，
+可建立 VAR 模型，
+
+先檢驗平穩性，
+再依資訊準則選擇落後期數，
+
+並進行 Granger 因果關係與
+脈衝反應函數（IRF）分析。
+
+</p>
+
+<div class="formula">
+
+Yₜ = [Inflationₜ, WageGrowthₜ]′
+
+</div>
+
+<p>
+
+IRF 的重點是回答：
+
+「當 CPI 通膨突然受到一個正向衝擊後，
+薪資成長率在第 1、2、3…期如何反應？」
+
+</p>
+
+</section>
+
+
+<!-- 07 -->
+
+<section class="card full">
+
+<div class="label">
+07｜視覺化設計
+</div>
+
+<h2>
+三張核心圖表
+</h2>
+
+<div class="grid">
+
+<div>
+
+<h3>
+① 雙 Y 軸時間序列圖 ★首選
+</h3>
+
+<p>
+
+左軸放 CPI 年增率（%），
+右軸放受僱員工總薪資或平均薪資
+（元／萬元）。
+
+適合快速呈現兩個不同單位序列的
+共同趨勢與轉折點。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+② 脈衝衝擊圖（IRF） ★學術核心
+</h3>
+
+<p>
+
+若採 VAR，
+
+將「CPI 正向一個標準差衝擊」後
+薪資成長率的反應畫成隨期數變化的曲線，
+
+可直接呈現遞延效果與持續時間。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+③ 熱力圖 ★延伸分析
+</h3>
+
+<p>
+
+若取得產業別薪資資料，
+
+可設定 X 軸為年份、
+Y 軸為產業，
+
+顏色深淺代表薪資成長率或
+實質薪資變化，
+
+觀察不同產業受到通膨衝擊的異質性。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+④ 輔助：散佈圖
+</h3>
+
+<p>
+
+X 軸為 CPI 通膨率、
+Y 軸為薪資成長率，
+
+搭配迴歸線，
+可先觀察兩者的同期關係；
+
+但不能單獨作為因果證據。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 08 -->
+
+<section class="card full">
+
+<div class="label">
+08｜圖表示意
+</div>
+
+<h2>
+雙 Y 軸圖：研究成果建議版型
+</h2>
+
+<div class="chart">
+
+<svg
+viewBox="0 0 900 280"
+preserveAspectRatio="none"
+>
+
+<!-- Y Axis -->
+
+<line
+x1="65"
+y1="20"
+x2="65"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<line
+x1="835"
+y1="20"
+x2="835"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<!-- X Axis -->
+
+<line
+x1="65"
+y1="235"
+x2="835"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<!-- Grid -->
+
+<g stroke="#e5e7eb">
+
+<line
+x1="65"
+y1="70"
+x2="835"
+y2="70"
+/>
+
+<line
+x1="65"
+y1="120"
+x2="835"
+y2="120"
+/>
+
+<line
+x1="65"
+y1="170"
+x2="835"
+y2="170"
+/>
+
+</g>
+
+
+<!-- CPI -->
+
+<polyline
+fill="none"
+stroke="#315efb"
+stroke-width="4"
+points="
+70,185
+150,160
+230,175
+310,125
+390,140
+470,95
+550,120
+630,75
+710,105
+830,55
+"
+/>
+
+
+<!-- Wage -->
+
+<polyline
+fill="none"
+stroke="#7c3aed"
+stroke-width="4"
+points="
+70,205
+150,190
+230,195
+310,170
+390,160
+470,145
+550,130
+630,115
+710,95
+830,80
+"
+/>
+
+
+<!-- Labels -->
+
+<text
+x="75"
+y="18"
+>
+CPI 年增率（%）
+</text>
+
+<text
+x="690"
+y="18"
+>
+薪資（元）
+</text>
+
+<text
+x="390"
+y="268"
+>
+時間
+</text>
+
+<text
+x="300"
+y="45"
+fill="#315efb"
+>
+━━ CPI
+</text>
+
+<text
+x="410"
+y="45"
+fill="#7c3aed"
+>
+━━ 薪資
+</text>
+
+</svg>
+
+</div>
+
+<p class="note">
+
+上圖為版型示意，非實際 AREMOS 數據。
+
+正式報告應將匯出的時間序列填入後再繪製。
+
+</p>
+
+</section>
+
+
+<!-- 09 -->
+
+<section class="card full">
+
+<div class="label">
+09｜研究流程
+</div>
+
+<h2>
+從 AREMOS 到實證結果
+</h2>
+
+<ol>
+
+<li>
+在 PRICE 與 WAGE 資料庫確認
+CPI、薪資指標與資料頻率。
+</li>
+
+<li>
+統一樣本期間與頻率，
+處理缺漏值與資料定義差異。
+</li>
+
+<li>
+計算薪資成長率與實質薪資，
+必要時進行季節調整。
+</li>
+
+<li>
+繪製雙 Y 軸圖與描述統計，
+找出重要轉折。
+</li>
+
+<li>
+進行 ADF 等單根檢定，
+確認 VAR 的變數處理方式。
+</li>
+
+<li>
+建立 VAR、選擇落後期數，
+進行 Granger 因果與 IRF。
+</li>
+
+<li>
+若加入產業別資料，
+再以熱力圖呈現異質性。
+</li>
+
+<li>
+最後檢驗穩健性，
+避免把同期相關誤解成因果關係。
+</li>
+
+</ol>
+
+</section>
+
+
+<!-- 10 -->
+
+<section class="card full">
+
+<div class="label">
+10｜資料來源與備註
+</div>
+
+<h2>
+AREMOS
+</h2>
+
+<p>
+
+AREMOS 網路版包含臺灣的物價與薪資等時間序列；
+
+PRICE 為臺灣地區物價統計資料庫，
+
+WAGE 為臺灣地區薪資與生產力統計資料庫，
+
+資料可透過名稱、描述與頻率等欄位搜尋。
+
+</p>
+
+<p>
+
+本頁研究設計是「報告架構與方法建議」，
+尚未填入實際 AREMOS 數值，
+
+因此圖表中的示意線不得當作研究結果。
+
+</p>
+
+</section>
+
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="footer wrap">
+
+資料庫入口：
+AREMOS 經濟統計資料庫
+
+｜
+正式報告請以實際下載資料、
+資料定義及檢索日期為準。
+
+</footer>
+
+</main>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI與經濟研究｜通膨與薪資</title>
+
+<style>
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#64748b;
+    --accent:#315efb;
+    --accent2:#7c3aed;
+    --line:#e5e7eb;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Noto Sans TC",
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+    background:linear-gradient(
+        135deg,
+        #182848,
+        #4b6cb7
+    );
+    color:white;
+    padding:70px 20px 60px;
+}
+
+.wrap{
+    max-width:1050px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:14px;
+}
+
+h1{
+    font-size:clamp(30px,5vw,50px);
+    line-height:1.2;
+    margin:18px 0 12px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.9;
+}
+
+/* ===== Main ===== */
+
+main{
+    padding:35px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.05);
+    margin-bottom:20px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.label{
+    color:var(--accent);
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+h2{
+    margin:7px 0 15px;
+    font-size:25px;
+}
+
+h3{
+    margin-top:18px;
+}
+
+ul{
+    padding-left:22px;
+}
+
+.formula{
+    background:#f1f5ff;
+    border-left:4px solid var(--accent);
+    padding:15px 18px;
+    border-radius:10px;
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        monospace;
+}
+
+.tag{
+    display:inline-block;
+    background:#eef2ff;
+    color:#4338ca;
+    padding:4px 9px;
+    border-radius:8px;
+    margin:3px;
+    font-size:13px;
+}
+
+/* ===== Table ===== */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th,
+td{
+    border-bottom:1px solid var(--line);
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#f8fafc;
+}
+
+/* ===== Chart ===== */
+
+.chart{
+    height:330px;
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    background:#fcfdff;
+    overflow:hidden;
+}
+
+svg{
+    width:100%;
+    height:100%;
+}
+
+.note{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ===== Footer ===== */
+
+.footer{
+    color:var(--muted);
+    font-size:14px;
+    padding:
+        10px
+        0
+        50px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:750px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .card{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     Hero
+========================= -->
+
+<header class="hero">
+
+<div class="wrap">
+
+<span class="badge">
+淡江大學｜AI與經濟研究報告
+</span>
+
+<h1>
+通膨與薪資：<br>
+物價衝擊是否會被薪資調整吸收？
+</h1>
+
+<p>
+以臺灣 AREMOS 時間序列資料，
+分析 CPI 通膨與受僱員工薪資之動態關係。
+</p>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     Main
+========================= -->
+
+<main class="wrap">
+
+<div class="grid">
+
+
+<!-- 01 -->
+
+<section class="card full">
+
+<div class="label">
+01｜研究題目
+</div>
+
+<h2>
+「物價衝擊與薪資調整的動態傳導：
+臺灣通膨與名目薪資關係之實證研究」
+</h2>
+
+<p>
+<b>研究核心：</b>
+探討臺灣 CPI 通膨上升後，
+受僱員工總薪資是否會在當期或落後期間調整，
+以及薪資成長是否可能反過來形成成本推動型通膨。
+</p>
+
+<p>
+
+<span class="tag">通膨</span>
+
+<span class="tag">薪資</span>
+
+<span class="tag">薪資—物價螺旋</span>
+
+<span class="tag">VAR</span>
+
+<span class="tag">IRF</span>
+
+</p>
+
+</section>
+
+
+<!-- 02 -->
+
+<section class="card">
+
+<div class="label">
+02｜研究問題
+</div>
+
+<h2>
+Research Questions
+</h2>
+
+<ul>
+
+<li>
+通膨上升是否會帶動受僱員工名目薪資成長？
+</li>
+
+<li>
+薪資對物價衝擊的反應是否存在時間落後？
+</li>
+
+<li>
+薪資成長是否可能透過勞動成本形成反向的物價壓力？
+</li>
+
+<li>
+物價上升後，實質薪資是否出現短期下降？
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- 03 -->
+
+<section class="card">
+
+<div class="label">
+03｜研究假說
+</div>
+
+<h2>
+Hypotheses
+</h2>
+
+<h3>
+H1｜物價衝擊假說
+</h3>
+
+<p>
+短期內 CPI 通膨上升會造成實質薪資承受壓力；
+名目薪資則可能在數期後逐步調整。
+</p>
+
+<h3>
+H2｜薪資追趕假說
+</h3>
+
+<p>
+若勞工議價、最低工資或企業調薪機制存在，
+過去的物價上漲會提高後續名目薪資成長率。
+</p>
+
+<h3>
+H3｜成本推動假說
+</h3>
+
+<p>
+名目薪資快速成長可能提高企業勞動成本，
+進一步對 CPI 形成正向壓力。
+</p>
+
+</section>
+
+
+<!-- 04 -->
+
+<section class="card full">
+
+<div class="label">
+04｜經濟學理傳導機制
+</div>
+
+<h2>
+Inflation ↔ Wage Transmission
+</h2>
+
+<div class="formula">
+
+物價上升
+→
+實質購買力下降
+→
+勞工要求調薪
+→
+名目薪資上升
+→
+勞動成本上升
+→
+企業調整價格
+→
+CPI 上升
+
+</div>
+
+<p>
+
+此機制可形成「薪資—物價螺旋」的可能性。
+
+不過，薪資與物價同時受到景氣、
+勞動生產力、能源價格、貨幣政策與外部需求等因素影響，
+
+因此實證上不宜僅以相關係數判斷因果關係。
+
+</p>
+
+</section>
+
+
+<!-- 05 -->
+
+<section class="card">
+
+<div class="label">
+05｜AREMOS 資料規劃
+</div>
+
+<h2>
+建議查詢指標
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+
+<th>
+變數
+</th>
+
+<th>
+建議資料
+</th>
+
+<th>
+用途
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+Inflation
+</td>
+
+<td>
+CPI 年增率
+</td>
+
+<td>
+主要物價衝擊
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Wage
+</td>
+
+<td>
+受僱員工總薪資／平均薪資
+</td>
+
+<td>
+名目薪資反應
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Real Wage
+</td>
+
+<td>
+薪資經 CPI 平減
+</td>
+
+<td>
+購買力與實質所得
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Control
+</td>
+
+<td>
+失業率、工業生產等
+</td>
+
+<td>
+控制景氣循環
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p class="note">
+
+實際檢索代號請在 AREMOS 的
+PRICE、WAGE、MAN 等資料庫依
+「名稱／描述／頻率」搜尋後確認；
+
+不同版本資料庫的代號可能不同。
+
+</p>
+
+</section>
+
+
+<!-- 06 -->
+
+<section class="card">
+
+<div class="label">
+06｜建議研究方法
+</div>
+
+<h2>
+VAR 動態分析
+</h2>
+
+<p>
+
+若資料頻率與樣本長度允許，
+可建立 VAR 模型，
+
+先檢驗平穩性，
+再依資訊準則選擇落後期數，
+
+並進行 Granger 因果關係與
+脈衝反應函數（IRF）分析。
+
+</p>
+
+<div class="formula">
+
+Yₜ = [Inflationₜ, WageGrowthₜ]′
+
+</div>
+
+<p>
+
+IRF 的重點是回答：
+
+「當 CPI 通膨突然受到一個正向衝擊後，
+薪資成長率在第 1、2、3…期如何反應？」
+
+</p>
+
+</section>
+
+
+<!-- 07 -->
+
+<section class="card full">
+
+<div class="label">
+07｜視覺化設計
+</div>
+
+<h2>
+三張核心圖表
+</h2>
+
+<div class="grid">
+
+<div>
+
+<h3>
+① 雙 Y 軸時間序列圖 ★首選
+</h3>
+
+<p>
+
+左軸放 CPI 年增率（%），
+右軸放受僱員工總薪資或平均薪資
+（元／萬元）。
+
+適合快速呈現兩個不同單位序列的
+共同趨勢與轉折點。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+② 脈衝衝擊圖（IRF） ★學術核心
+</h3>
+
+<p>
+
+若採 VAR，
+
+將「CPI 正向一個標準差衝擊」後
+薪資成長率的反應畫成隨期數變化的曲線，
+
+可直接呈現遞延效果與持續時間。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+③ 熱力圖 ★延伸分析
+</h3>
+
+<p>
+
+若取得產業別薪資資料，
+
+可設定 X 軸為年份、
+Y 軸為產業，
+
+顏色深淺代表薪資成長率或
+實質薪資變化，
+
+觀察不同產業受到通膨衝擊的異質性。
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+④ 輔助：散佈圖
+</h3>
+
+<p>
+
+X 軸為 CPI 通膨率、
+Y 軸為薪資成長率，
+
+搭配迴歸線，
+可先觀察兩者的同期關係；
+
+但不能單獨作為因果證據。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 08 -->
+
+<section class="card full">
+
+<div class="label">
+08｜圖表示意
+</div>
+
+<h2>
+雙 Y 軸圖：研究成果建議版型
+</h2>
+
+<div class="chart">
+
+<svg
+viewBox="0 0 900 280"
+preserveAspectRatio="none"
+>
+
+<!-- Y Axis -->
+
+<line
+x1="65"
+y1="20"
+x2="65"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<line
+x1="835"
+y1="20"
+x2="835"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<!-- X Axis -->
+
+<line
+x1="65"
+y1="235"
+x2="835"
+y2="235"
+stroke="#94a3b8"
+/>
+
+<!-- Grid -->
+
+<g stroke="#e5e7eb">
+
+<line
+x1="65"
+y1="70"
+x2="835"
+y2="70"
+/>
+
+<line
+x1="65"
+y1="120"
+x2="835"
+y2="120"
+/>
+
+<line
+x1="65"
+y1="170"
+x2="835"
+y2="170"
+/>
+
+</g>
+
+
+<!-- CPI -->
+
+<polyline
+fill="none"
+stroke="#315efb"
+stroke-width="4"
+points="
+70,185
+150,160
+230,175
+310,125
+390,140
+470,95
+550,120
+630,75
+710,105
+830,55
+"
+/>
+
+
+<!-- Wage -->
+
+<polyline
+fill="none"
+stroke="#7c3aed"
+stroke-width="4"
+points="
+70,205
+150,190
+230,195
+310,170
+390,160
+470,145
+550,130
+630,115
+710,95
+830,80
+"
+/>
+
+
+<!-- Labels -->
+
+<text
+x="75"
+y="18"
+>
+CPI 年增率（%）
+</text>
+
+<text
+x="690"
+y="18"
+>
+薪資（元）
+</text>
+
+<text
+x="390"
+y="268"
+>
+時間
+</text>
+
+<text
+x="300"
+y="45"
+fill="#315efb"
+>
+━━ CPI
+</text>
+
+<text
+x="410"
+y="45"
+fill="#7c3aed"
+>
+━━ 薪資
+</text>
+
+</svg>
+
+</div>
+
+<p class="note">
+
+上圖為版型示意，非實際 AREMOS 數據。
+
+正式報告應將匯出的時間序列填入後再繪製。
+
+</p>
+
+</section>
+
+
+<!-- 09 -->
+
+<section class="card full">
+
+<div class="label">
+09｜研究流程
+</div>
+
+<h2>
+從 AREMOS 到實證結果
+</h2>
+
+<ol>
+
+<li>
+在 PRICE 與 WAGE 資料庫確認
+CPI、薪資指標與資料頻率。
+</li>
+
+<li>
+統一樣本期間與頻率，
+處理缺漏值與資料定義差異。
+</li>
+
+<li>
+計算薪資成長率與實質薪資，
+必要時進行季節調整。
+</li>
+
+<li>
+繪製雙 Y 軸圖與描述統計，
+找出重要轉折。
+</li>
+
+<li>
+進行 ADF 等單根檢定，
+確認 VAR 的變數處理方式。
+</li>
+
+<li>
+建立 VAR、選擇落後期數，
+進行 Granger 因果與 IRF。
+</li>
+
+<li>
+若加入產業別資料，
+再以熱力圖呈現異質性。
+</li>
+
+<li>
+最後檢驗穩健性，
+避免把同期相關誤解成因果關係。
+</li>
+
+</ol>
+
+</section>
+
+
+<!-- 10 -->
+
+<section class="card full">
+
+<div class="label">
+10｜資料來源與備註
+</div>
+
+<h2>
+AREMOS
+</h2>
+
+<p>
+
+AREMOS 網路版包含臺灣的物價與薪資等時間序列；
+
+PRICE 為臺灣地區物價統計資料庫，
+
+WAGE 為臺灣地區薪資與生產力統計資料庫，
+
+資料可透過名稱、描述與頻率等欄位搜尋。
+
+</p>
+
+<p>
+
+本頁研究設計是「報告架構與方法建議」，
+尚未填入實際 AREMOS 數值，
+
+因此圖表中的示意線不得當作研究結果。
+
+</p>
+
+</section>
+
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="footer wrap">
+
+資料庫入口：
+AREMOS 經濟統計資料庫
+
+｜
+正式報告請以實際下載資料、
+資料定義及檢索日期為準。
+
+</footer>
+
+</main>
+
+</body>
+</html>

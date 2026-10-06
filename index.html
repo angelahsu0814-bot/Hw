@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI與經濟研究｜通膨與薪資</title>
+
+<style>
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#64748b;
+    --accent:#315efb;
+    --accent2:#7c3aed;
+    --line:#e5e7eb;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Noto Sans TC",
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+    background:linear-gradient(
+        135deg,
+        #182848,
+        #4b6cb7
+    );
+    color:white;
+    padding:70px 20px 60px;
+}
+
+.wrap{
+    max-width:1050px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:14px;
+}
+
+h1{
+    font-size:clamp(30px,5vw,50px);
+    line-height:1.2;
+    margin:18px 0 12px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.9;
+}
+
+/* ===== Main ===== */
+
+main{
+    padding:35px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(15,23,42,.05);
+    margin-bottom:20px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.label{
+    color:var(--accent);
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+h2{
+    margin:7px 0 15px;
+    font-size:25px;
+}
+
+h3{
+    margin-top:18px;
+}
+</style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">經濟研究報告</span>
+      <h1>AI與經濟研究：通膨與薪資</h1>
+      <p>探討人工智慧發展對整體物價與實質薪資變化的影響機制。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <div class="card full">
+        <span class="label">研究摘要</span>
+        <h2>核心探討問題</h2>
+        <p>歡迎來到我的研究頁面。這裡展示 AI 技術推進對通膨率與薪資動態的最新數據分析。</p>
+      </div>
+
+      <div class="card">
+        <span class="label">主題一</span>
+        <h2>通膨影響</h2>
+        <p>分析自動化技術對生產成本與終端物價之傳導機制。</p>
+      </div>
+
+      <div class="card">
+        <span class="label">主題二</span>
+        <h2>薪資變化</h2>
+        <p>探討勞動市場結構轉型下，實質薪資成長之差異化趨勢。</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
